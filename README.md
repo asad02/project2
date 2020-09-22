@@ -7,6 +7,11 @@ A shopping restful app using node js
 * codemon - for loading
     * install using command `npm install --save-dev codemon`
 * Error Handling
+* Request Body Parser
+    * install using command `npm install --save body-parser`
+* Adding CORS support for cross origin
+* Use of MongoDB for saving records in noSQL db
+    * mongoose
 
 # API's - built in node js
 ## Products
