@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://admin:' + process.env.MONGO_ATLAS_PW + '@node-re
     useUnifiedTopology: true
 });
 
+mongoose.Promise = global.Promise;
+
 app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({extended: false}));
