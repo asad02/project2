@@ -9,13 +9,15 @@ const Product = require('../models/product');
 router.get('/', (req, res, next) => {
     Order
     .find()
-    .select('Product quantity _id')
+    .select('product quantity _id')
+    .populate('product', 'name')
     .exec()
     .then(docs => {
         res.status(200).json({
             count: docs.length,
             orders: docs.map(doc => {
-                return {_id: doc._id,
+                return {
+                    _id: doc._id,
                     product: doc.product,
                     quantity: doc.quantity,
                     request: {
@@ -44,7 +46,7 @@ router.post('/', (req, res, next) => {
         const order = new Order({
             _id: mongoose.Types.ObjectId(),
             quantity: req.body.quantity,
-            productId: req.body.productId
+            product: req.body.productId
         });
         return order.save()
     })
@@ -73,6 +75,8 @@ router.post('/', (req, res, next) => {
 router.get('/:orderId', (req, res, next) => {
 
     Order.findById(req.params.orderId)
+    .select('_id product quantity')
+    .populate('product', 'name price _id')
     .exec()
     .then(order => {
         if (!order) {
