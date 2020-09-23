@@ -12,6 +12,7 @@ A shopping restful app using node js
 * Adding CORS support for cross origin
 * Use of MongoDB for saving records in noSQL db
     * mongoose
+    * populate object using mongoose
 
 # API's - built in node js
 ## Products
