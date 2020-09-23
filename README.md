@@ -13,6 +13,7 @@ A shopping restful app using node js
 * Use of MongoDB for saving records in noSQL db
     * mongoose
     * populate object using mongoose
+* use of multer packages for image upload    
 
 # API's - built in node js
 ## Products
